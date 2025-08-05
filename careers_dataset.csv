@@ -1,0 +1,11 @@
+name,age,percentage,interests,skills,hobbies,personality,work_style,quiz_q1,quiz_q2,quiz_q3,quiz_q4,quiz_q5,quiz_q6,quiz_q7,quiz_q8,quiz_q9,quiz_q10,career_path
+Alice,16,92,Technology,Programming,Reading,Introvert,Analytical,5,4,5,4,5,3,4,5,4,5,Software Engineer
+Bob,17,88,Science,Medical Knowledge,Music,Extrovert,Patient,4,5,4,5,4,5,3,4,5,4,Medical Doctor
+Carol,16,75,Business,Leadership,Gaming,Ambivert,Leadership,3,4,3,4,3,5,4,3,5,4,Business Manager
+David,18,80,Arts,Creativity,Drawing,Introvert,Creative,4,3,5,4,5,4,5,3,4,5,Graphic Designer
+Eve,17,85,Engineering,Technical Skills,Sports,Extrovert,Analytical,5,4,5,4,5,3,4,5,4,5,Mechanical Engineer
+Frank,16,60,Technology,Programming,Gaming,Introvert,Analytical,3,3,4,3,4,3,4,3,4,3,Web Developer
+Grace,17,70,Science,Medical Knowledge,Reading,Ambivert,Patient,4,5,4,5,4,5,3,4,5,4,Pharmacist
+Heidi,18,65,Business,Communication,Music,Extrovert,Leadership,3,4,3,4,3,5,4,3,5,4,Sales Executive
+Ivan,16,78,Arts,Creativity,Drawing,Introvert,Creative,4,3,5,4,5,4,5,3,4,5,UI/UX Designer
+Judy,17,82,Engineering,Technical Skills,Sports,Extrovert,Analytical,5,4,5,4,5,3,4,5,4,5,Civil Engineer
