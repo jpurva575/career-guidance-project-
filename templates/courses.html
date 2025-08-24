@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-10">
+    <h2 class="mb-4 text-primary">Available Courses</h2>
+    
+    {% if courses %}
+    <div class="row">
+      {% for course in courses %}
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title text-primary">{{ course.name }}</h5>
+            <p class="card-text">
+              <strong>Duration:</strong> {{ course.duration }}<br>
+              <strong>Eligibility:</strong> {{ course.eligibility }}<br>
+              <strong>Fees:</strong> {{ course.fees }}<br>
+              <strong>Careers:</strong> 
+              {% for career in course.careers %}
+                {{ career }}{% if not loop.last %}, {% endif %}
+              {% endfor %}
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-info">
+      <p>No courses available at the moment.</p>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

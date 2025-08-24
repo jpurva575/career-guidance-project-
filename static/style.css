@@ -1,0 +1,26 @@
+body {
+    background: #f8f9fa;
+}
+
+.navbar-brand {
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+}
+
+footer {
+    font-size: 1rem;
+}
+
+.card {
+    border-radius: 1rem;
+    box-shadow: 0 2px 16px rgba(102,126,234,0.07);
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, #764ba2 0%, #667eea 100%);
+}

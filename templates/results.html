@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block content %}
+{% if predicted_career %}
+  <div class="alert alert-success text-center">
+    <h4>Your Predicted Career Path: <strong>{{ predicted_career }}</strong></h4>
+  </div>
+{% endif %}
+
+{% if engineering_alternatives %}
+  <div class="alert alert-info">
+    <h4 class="text-center">{{ engineering_alternatives.primary_recommendation }}</h4>
+    <p class="text-center">{{ engineering_alternatives.description }}</p>
+  </div>
+{% endif %}
+<div class="row justify-content-center">
+  <div class="col-lg-10">
+    <div class="card p-4 mb-4">
+      <h2 class="mb-3 text-primary">Your Career Recommendations</h2>
+      {% if recommendations %}
+        <div class="row">
+          {% for rec in recommendations %}
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 p-3">
+              <h4 class="text-success">{{ rec.name }}</h4>
+              <p class="mb-1"><strong>Match Score:</strong> {{ rec.match_score }}%</p>
+              <p class="mb-1"><strong>Description:</strong> {{ rec.description }}</p>
+              <p class="mb-1"><strong>Salary Range:</strong> {{ rec.salary_range }}</p>
+              <p class="mb-1"><strong>Requirements:</strong> {{ rec.requirements }}</p>
+              <a href="/career/{{ rec.name }}" class="btn btn-outline-primary btn-sm mt-2">View Details</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p>No recommendations found. Please update your profile.</p>
+          {% endif %}
+  </div>
+
+  {% if engineering_alternatives %}
+  <div class="card p-4 mt-4">
+    <h4 class="text-primary mb-3">Engineering Alternative Paths</h4>
+    <div class="row">
+      {% for path in engineering_alternatives.alternative_paths %}
+      <div class="col-md-6 col-lg-6 mb-4">
+        <div class="card h-100 p-3 border-primary">
+          <h5 class="text-primary">{{ path.name }}</h5>
+          <p class="mb-2">{{ path.description }}</p>
+          <div class="row">
+            <div class="col-md-6">
+              <p class="mb-1"><strong>Eligibility:</strong> {{ path.eligibility }}</p>
+              <p class="mb-1"><strong>Duration:</strong> {{ path.duration }}</p>
+              <p class="mb-1"><strong>Fees:</strong> {{ path.fees }}</p>
+              <p class="mb-1"><strong>Entrance:</strong> {{ path.entrance_exam }}</p>
+              <p class="mb-1"><strong>Colleges:</strong> {{ path.colleges }}</p>
+            </div>
+            <div class="col-md-6">
+              <h6 class="text-success">Advantages:</h6>
+              <ul class="small">
+                {% for advantage in path.advantages %}
+                <li>{{ advantage }}</li>
+                {% endfor %}
+              </ul>
+              {% if path.branches %}
+              <h6 class="text-info">Available Branches:</h6>
+              <ul class="small">
+                {% for branch in path.branches %}
+                <li>{{ branch }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+              {% if path.trades %}
+              <h6 class="text-info">Available Trades:</h6>
+              <ul class="small">
+                {% for trade in path.trades %}
+                <li>{{ trade }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+              {% if path.courses %}
+              <h6 class="text-info">Available Courses:</h6>
+              <ul class="small">
+                {% for course in path.courses %}
+                <li>{{ course }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <div class="card p-3 bg-success text-white">
+          <h5>Success Stories</h5>
+          <ul>
+            {% for story in engineering_alternatives.success_stories %}
+            <li>{{ story }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card p-3 bg-info text-white">
+          <h5>Next Steps</h5>
+          <ol>
+            {% for step in engineering_alternatives.next_steps %}
+            <li>{{ step }}</li>
+            {% endfor %}
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if alternative_paths %}
+  <div class="card p-4 mt-4">
+    <h4 class="text-warning mb-3">Alternative Career Paths</h4>
+    <div class="row">
+      {% for alt in alternative_paths %}
+      <div class="col-md-6 col-lg-3 mb-3">
+        <div class="card h-100 p-3 bg-light">
+          <h5 class="text-secondary">{{ alt.name }}</h5>
+          <p class="mb-1">{{ alt.description }}</p>
+          <p class="mb-1"><strong>Duration:</strong> {{ alt.duration }}</p>
+          <p class="mb-1"><strong>Cost:</strong> {{ alt.cost }}</p>
+          <p class="mb-1"><strong>Job Prospects:</strong> {{ alt.job_prospects }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  </div>
+</div>
+{% endblock %}

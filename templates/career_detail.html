@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-10">
+    <div class="card p-4">
+      <h2 class="mb-4 text-primary">{{ career.name if career.name else 'Career Details' }}</h2>
+      
+      {% if career.description %}
+      <div class="mb-4">
+        <h4>Description</h4>
+        <p>{{ career.description }}</p>
+      </div>
+      {% endif %}
+      
+      {% if career.skills_required %}
+      <div class="mb-4">
+        <h4>Skills Required</h4>
+        <ul>
+          {% for skill in career.skills_required %}
+          <li>{{ skill }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      
+      {% if career.education %}
+      <div class="mb-4">
+        <h4>Education</h4>
+        <p>{{ career.education }}</p>
+      </div>
+      {% endif %}
+      
+      {% if career.salary_range %}
+      <div class="mb-4">
+        <h4>Salary Range</h4>
+        <p>{{ career.salary_range }}</p>
+      </div>
+      {% endif %}
+      
+      {% if career.job_outlook %}
+      <div class="mb-4">
+        <h4>Job Outlook</h4>
+        <p>{{ career.job_outlook }}</p>
+      </div>
+      {% endif %}
+      
+      {% if career.companies %}
+      <div class="mb-4">
+        <h4>Top Companies</h4>
+        <ul>
+          {% for company in career.companies %}
+          <li>{{ company }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      
+      {% if career.courses %}
+      <div class="mb-4">
+        <h4>Related Courses</h4>
+        <ul>
+          {% for course in career.courses %}
+          <li>{{ course }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      
+      <div class="text-center">
+        <a href="/results" class="btn btn-primary">Back to Results</a>
+        <a href="/courses" class="btn btn-outline-primary">Explore Courses</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

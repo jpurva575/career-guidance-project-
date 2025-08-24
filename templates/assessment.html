@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-10">
+    <div class="card p-4">
+      <h2 class="mb-4 text-primary">Career Assessment</h2>
+      <p class="lead mb-4">Our comprehensive assessment helps you discover the perfect career path based on your unique profile.</p>
+      
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <h4>What We Assess:</h4>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-check text-success me-2"></i>Personal Interests & Hobbies</li>
+            <li><i class="fas fa-check text-success me-2"></i>Skills & Abilities</li>
+            <li><i class="fas fa-check text-success me-2"></i>Academic Performance</li>
+            <li><i class="fas fa-check text-success me-2"></i>Personality Type</li>
+            <li><i class="fas fa-check text-success me-2"></i>Work Style Preferences</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h4>Assessment Process:</h4>
+          <ol>
+            <li>Fill out your profile information</li>
+            <li>Complete our personality quiz</li>
+            <li>Get instant career recommendations</li>
+            <li>Explore detailed career paths</li>
+          </ol>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <a href="/profile" class="btn btn-primary btn-lg">Start Assessment</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

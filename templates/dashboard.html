@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h2 mb-0">Welcome back, {{ session.get('user_name', 'User') }}!</h1>
+            <a href="{{ url_for('profile') }}" class="btn btn-primary">Take Assessment</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Quick Stats -->
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center">
+                <div class="display-4 text-primary mb-2">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h5 class="card-title">Career Assessment</h5>
+                <p class="card-text text-muted">Discover your ideal career path based on your interests and skills.</p>
+                <a href="{{ url_for('profile') }}" class="btn btn-outline-primary">Start Assessment</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center">
+                <div class="display-4 text-success mb-2">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h5 class="card-title">Explore Courses</h5>
+                <p class="card-text text-muted">Browse through various courses and educational paths.</p>
+                <a href="{{ url_for('courses') }}" class="btn btn-outline-success">View Courses</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center">
+                <div class="display-4 text-info mb-2">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h5 class="card-title">Skill Development</h5>
+                <p class="card-text text-muted">Learn about essential skills for different career paths.</p>
+                <a href="{{ url_for('skills') }}" class="btn btn-outline-info">Explore Skills</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Recent Results -->
+    <div class="col-md-8 mb-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white border-0">
+                <h5 class="mb-0">Recent Assessment Results</h5>
+            </div>
+            <div class="card-body">
+                {% if session.get('predicted_career') %}
+                    <div class="alert alert-success">
+                        <h6 class="alert-heading">Latest Career Prediction</h6>
+                        <p class="mb-0"><strong>{{ session.get('predicted_career') }}</strong></p>
+                        <small class="text-muted">Based on your most recent assessment</small>
+                    </div>
+                    <a href="{{ url_for('results') }}" class="btn btn-primary">View Full Results</a>
+                {% else %}
+                    <div class="text-center py-4">
+                        <i class="fas fa-clipboard-list text-muted mb-3" style="font-size: 3rem;"></i>
+                        <h6 class="text-muted">No assessment results yet</h6>
+                        <p class="text-muted">Take your first career assessment to get personalized recommendations.</p>
+                        <a href="{{ url_for('profile') }}" class="btn btn-primary">Take Assessment</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- User Profile -->
+    <div class="col-md-4 mb-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white border-0">
+                <h5 class="mb-0">Your Profile</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0">{{ session.get('user_name', 'User') }}</h6>
+                        <small class="text-muted">{{ session.get('user_email', 'user@example.com') }}</small>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <small class="text-muted">Education Level</small>
+                    <p class="mb-0">{{ session.get('user_education', 'Not specified') }}</p>
+                </div>
+                
+                <div class="mb-3">
+                    <small class="text-muted">Age</small>
+                    <p class="mb-0">{{ session.get('user_age', 'Not specified') }}</p>
+                </div>
+                
+                <a href="{{ url_for('my_results') }}" class="btn btn-outline-secondary btn-sm w-100">View All Results</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white border-0">
+                <h5 class="mb-0">Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <a href="{{ url_for('profile') }}" class="btn btn-outline-primary w-100">
+                            <i class="fas fa-clipboard-list me-2"></i>New Assessment
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="{{ url_for('courses') }}" class="btn btn-outline-success w-100">
+                            <i class="fas fa-graduation-cap me-2"></i>Browse Courses
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="{{ url_for('skills') }}" class="btn btn-outline-info w-100">
+                            <i class="fas fa-tools me-2"></i>Explore Skills
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="{{ url_for('my_results') }}" class="btn btn-outline-secondary w-100">
+                            <i class="fas fa-history me-2"></i>View History
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
